@@ -43,5 +43,5 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < names.length; i++) {
     ctx.fillText(names[i], CLOUD_X + TEXT_WIDTH + GAP + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - DOUBLE_GAP);
     ctx.fillRect(CLOUD_X + TEXT_WIDTH + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_X - DOUBLE_GAP, BAR_WIDTH, ((barHeight * times[i]) / maxTime));
-  }
+  };
 };
