@@ -20,7 +20,7 @@ var wizards = [];
 
 for (var i = 0; i < 4; i++) {
   var name = createName(firstName, secondName);
-  wizards.push ({
+  wizards.push({
     name: name,
     coatColor: color[getRandomInt(0, color.length)],
     eyesColor: eyeColor[getRandomInt(0, eyeColor.length)]
