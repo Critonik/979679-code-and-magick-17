@@ -19,6 +19,7 @@ var wizardSetup = document.querySelector('.setup-wizard');
 var wizardCoat = wizardSetup.querySelector('.wizard-coat');
 var wizardEyes = wizardSetup.querySelector('.wizard-eyes');
 var fireball = document.querySelector('.setup-fireball-wrap');
+var fireballInput = document.getElementsByName('fireball-color');
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -108,4 +109,5 @@ wizardEyes.addEventListener('click', function () {
 
 fireball.addEventListener('click', function () {
   fireball.style.background = fireballValue[getRandomInt(0, color.length)];
+  fireballInput.value = fireballValue[getRandomInt(0, color.length)];
 });
