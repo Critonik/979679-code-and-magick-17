@@ -7,17 +7,19 @@ var firstName = ['Иван', 'Хуан Себастьян', 'Мария', 'Кр�
 var secondName = [' да Марья', ' Верон', ' Мирабелла', ' Вальц', ' Онопко', ' и Лупа', ' Нионго', ' Ирвинг'];
 var color = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyeColor = ['red', 'black', 'blue', 'yellow', 'green'];
-var fireballValue = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var fireballValue = ['ee4830', '30a8ee', '5ce6c0', 'e848d5', 'e6e848'];
 
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
-
+var setupSimilar = document.querySelector('.setup-similar');
 var userNameInput = setup.querySelector('.setup-user-name');
 
 var wizardSetup = document.querySelector('.setup-wizard');
 var wizardCoat = wizardSetup.querySelector('.wizard-coat');
+var wizardCoatInput = document.getElementsByName('coat-color');
 var wizardEyes = wizardSetup.querySelector('.wizard-eyes');
+var wizardEyesInput = document.getElementsByName('eyes-color');
 var fireball = document.querySelector('.setup-fireball-wrap');
 var fireballInput = document.getElementsByName('fireball-color');
 
@@ -37,6 +39,7 @@ var onPopupEscPress = function (evt) {
 
 var openPopup = function () {
   setup.classList.remove('hidden');
+  setupSimilar.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
 
@@ -101,6 +104,7 @@ for (i = 0; i < 4; i++) {
 
 wizardCoat.addEventListener('click', function () {
   wizardCoat.style.fill = color[getRandomInt(0, color.length)];
+  wizardCoatInput.value = wizardCoat.style.fill;
 });
 
 wizardEyes.addEventListener('click', function () {
@@ -108,6 +112,5 @@ wizardEyes.addEventListener('click', function () {
 });
 
 fireball.addEventListener('click', function () {
-  fireball.style.background = fireballValue[getRandomInt(0, color.length)];
-  fireballInput.value = fireballValue[getRandomInt(0, color.length)];
+  fireball.style.background = '#' + fireballValue[getRandomInt(0, fireballValue.length)];
 });
