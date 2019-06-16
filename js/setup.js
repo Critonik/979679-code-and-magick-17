@@ -104,12 +104,12 @@ for (i = 0; i < 4; i++) {
 
 wizardCoat.addEventListener('click', function () {
   wizardCoat.style.fill = color[getRandomInt(0, color.length)];
-  wizardCoatInput.value =  wizardCoat.style.fill;
+  wizardCoatInput.value = wizardCoat.style.fill;
 });
 
 wizardEyes.addEventListener('click', function () {
   wizardEyes.style.fill = eyeColor[getRandomInt(0, eyeColor.length)];
-  wizardEyesInput.value =  wizardCoat.style.fill;
+  wizardEyesInput.value = wizardCoat.style.fill;
 });
 
 fireball.addEventListener('click', function () {
