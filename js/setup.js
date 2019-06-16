@@ -103,16 +103,16 @@ for (i = 0; i < 4; i++) {
 }
 
 wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = color[getRandomInt(0, color.length)];
-  wizardCoatInput.value = wizardCoat.style.fill;
+  wizardCoatInput.value = color[getRandomInt(0, color.length)];
+  wizardCoat.style.fill = wizardCoatInput.value;
 });
 
 wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = eyeColor[getRandomInt(0, eyeColor.length)];
-  wizardEyesInput.value = wizardCoat.style.fill;
+  wizardEyesInput.value = eyeColor[getRandomInt(0, eyeColor.length)];
+  wizardEyes.style.fill = wizardEyesInput.value;
 });
 
 fireball.addEventListener('click', function () {
-  fireball.style.backgroundColor = fireballValue[getRandomInt(0, fireballValue.length)];
-  fireballInput.value = fireball.style.backgroundColor;
+  fireballInput.value = fireballValue[getRandomInt(0, fireballValue.length)];
+  fireball.style.backgroundColor = fireballInput.value;
 });
