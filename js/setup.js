@@ -54,9 +54,9 @@ var fireballInput = fireball.querySelector('input');
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
       if (dragged) {
-        var onClickPreventDefault = function (evt) {
-          evt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault)
+        var onClickPreventDefault = function (evnt) {
+          evnt.preventDefault();
+          dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }
@@ -69,7 +69,7 @@ var fireballInput = fireball.querySelector('input');
 var setPosition = function () {
   setup.style.top = '80px';
   setup.style.left = '50%';
-}
+};
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
