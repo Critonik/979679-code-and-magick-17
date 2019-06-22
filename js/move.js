@@ -1,7 +1,7 @@
 'use strict';
 (function () {
-  var dialogHandler = setup.querySelector('.upload');
   var setup = document.querySelector('.setup');
+  var dialogHandler = setup.querySelector('.upload');
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
     var startCoords = {
