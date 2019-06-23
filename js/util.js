@@ -14,6 +14,21 @@ window.util = (function () {
       if (evt.keyCode === ENTER_KEYCODE) {
         action();
       }
+    },
+    randomNumber: function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
+    colorize: function setColor(el, elInput, colorType) {
+      el.addEventListener('click', function () {
+        elInput.value = colorType[window.util.randomNumber(0, colorType.length)];
+        el.style.fill = elInput.value;
+      });
+    },
+    backgroundColorize: function setBackgroundColor(elem, elemInput, colorType) {
+      elem.addEventListener('click', function () {
+        elemInput.value = colorType[window.util.randomNumber(0, colorType.length)];
+        elem.style.backgroundColor = elemInput.value;
+      });
     }
   };
 })();

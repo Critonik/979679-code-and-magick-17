@@ -11,22 +11,7 @@
   var eyeColor = ['red', 'black', 'blue', 'yellow', 'green'];
   var fireballValue = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
-  wizardCoat.addEventListener('click', function () {
-    wizardCoatInput.value = color[getRandomInt(0, color.length)];
-    wizardCoat.style.fill = wizardCoatInput.value;
-  });
-
-  wizardEyes.addEventListener('click', function () {
-    wizardEyesInput.value = eyeColor[getRandomInt(0, eyeColor.length)];
-    wizardEyes.style.fill = wizardEyesInput.value;
-  });
-
-  fireball.addEventListener('click', function () {
-    fireballInput.value = fireballValue[getRandomInt(0, fireballValue.length)];
-    fireball.style.backgroundColor = fireballInput.value;
-  });
+  window.util.colorize(wizardCoat, wizardCoatInput, color);
+  window.util.colorize(wizardEyes, wizardEyesInput, eyeColor);
+  window.util.backgroundColorize(fireball, fireballInput, fireballValue);
 })();
