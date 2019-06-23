@@ -6,7 +6,7 @@ var setupClose = setup.querySelector('.setup-close');
 var setupSimilar = document.querySelector('.setup-similar');
 var userNameInput = setup.querySelector('.setup-user-name');
 
-var setPosition = function () {
+var setDefaultPosition = function () {
   setup.style.top = '80px';
   setup.style.left = '50%';
 };
@@ -61,7 +61,7 @@ var closePopup = function () {
   } else {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
-    setPosition();
+    setDefaultPosition();
   }
 };
 
