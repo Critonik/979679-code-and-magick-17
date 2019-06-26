@@ -21,16 +21,16 @@ window.util = (function () {
         action();
       }
     },
-    randomNumber: function (min, max) {
+    getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     },
     colorize: function (el, elInput, colorType) {
       el.addEventListener('click', function () {
         if (el.tagName.toLowerCase() === 'use') {
-          elInput.value = COLORS[colorType][window.util.randomNumber(0, colorType.length)];
+          elInput.value = COLORS[colorType][window.util.getRandomInt(0, colorType.length)];
           el.style.fill = elInput.value;
         } else {
-          elInput.value = COLORS[colorType][window.util.randomNumber(0, colorType.length)];
+          elInput.value = COLORS[colorType][window.util.getRandomInt(0, colorType.length)];
           el.style.backgroundColor = elInput.value;
         }
       });

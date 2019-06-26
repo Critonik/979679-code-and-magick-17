@@ -2,14 +2,11 @@
 
 (function () {
   var URL = 'https://js.dump.academy/code-and-magick';
-
-  window.save = function (data, onLoad, onError) {
+  window.save = function (data, onLoad, onError, elem) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
+    elem.setAttribute('disabled', true);
 
-    xhr.addEventListener('load', function () {
-      onLoad(xhr.response);
-    });
 
     xhr.addEventListener('error', function () {
       onError('Произошла ошибка загрузки');
@@ -17,6 +14,12 @@
 
     xhr.open('POST', URL);
     xhr.send(data);
+
+    xhr.addEventListener('load', function () {
+      onLoad(xhr.response);
+      elem.removeAttribute('disabled');
+    });
+
   };
 })();
 
