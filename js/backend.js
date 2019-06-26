@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  var URL = 'https://js.dump.academy/code-an4d-magick';
+  var URL = 'https://js.dump.academy/code-and-magick';
   window.save = function (data, onLoad, onError, elem) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
