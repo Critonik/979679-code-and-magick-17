@@ -2,10 +2,11 @@
 
 (function () {
   var URL = 'https://js.dump.academy/code-and-magick';
-  window.save = function (data, onLoad, onError, elem) {
+  window.save = function (data, onLoad, onError) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
-    elem.setAttribute('disabled', true);
+    var submitButton = document.querySelector('.setup-submit');
+    submitButton.setAttribute('disabled', true);
 
 
     xhr.addEventListener('error', function () {
@@ -16,8 +17,12 @@
     xhr.send(data);
 
     xhr.addEventListener('load', function () {
-      onLoad(xhr.response);
-      elem.removeAttribute('disabled');
+      if (xhr.status === 200) {
+        onLoad(xhr.response);
+        submitButton.removeAttribute('disabled');
+      } else {
+        onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
+      }
     });
 
   };

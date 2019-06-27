@@ -6,7 +6,6 @@ var setupClose = setup.querySelector('.setup-close');
 var setupSimilar = document.querySelector('.setup-similar');
 var userNameInput = setup.querySelector('.setup-user-name');
 var form = document.querySelector('.setup-wizard-form');
-var submitButton = document.querySelector('.setup-submit');
 var setDefaultPosition = function () {
   setup.style.top = '80px';
   setup.style.left = '50%';
@@ -34,14 +33,15 @@ var setDefaultPosition = function () {
 
   var errorHandler = function (errorMessage) {
     var node = document.createElement('div');
-    node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style = 'z-index: 100; margin: auto; text-align: center; background-color: red;';
     node.style.position = 'absolute';
+    node.style.width = '400px';
     node.style.left = 0;
     node.style.right = 0;
     node.style.fontSize = '30px';
 
     node.textContent = errorMessage;
-    document.body.insertAdjacentElement('afterbegin', node);
+    setup.insertAdjacentElement('afterbegin', node);
   };
 
   window.load(successHandler, errorHandler);
@@ -56,14 +56,12 @@ var onError = function (errorMessage) {
   node.style.fontSize = '30px';
 
   node.textContent = errorMessage;
-  document.body.insertAdjacentElement('afterbegin', node);
+  setup.insertAdjacentElement('afterbegin', node);
 };
 
 form.addEventListener('submit', function (evt) {
-  window.save(new FormData(form), function () {
-    form.classList.add('hidden');
-  }, onError, submitButton);
   evt.preventDefault();
+  window.save(new FormData(form), closePopup, onError);
 });
 
 var onPopupEscPress = function (evt) {
