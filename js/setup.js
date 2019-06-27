@@ -11,6 +11,19 @@ var setDefaultPosition = function () {
   setup.style.left = '50%';
 };
 
+var onError = function (errorMessage) {
+  var node = document.createElement('div');
+  node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+  node.style.position = 'absolute';
+  node.style.width = '800px';
+  node.style.left = 0;
+  node.style.right = 0;
+  node.style.fontSize = '30px';
+
+  node.textContent = errorMessage;
+  setup.insertAdjacentElement('afterbegin', node);
+};
+
 (function () {
   var similarListElement = document.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
@@ -31,33 +44,9 @@ var setDefaultPosition = function () {
     similarListElement.appendChild(fragment);
   };
 
-  var errorHandler = function (errorMessage) {
-    var node = document.createElement('div');
-    node.style = 'z-index: 100; margin: auto; text-align: center; background-color: red;';
-    node.style.position = 'absolute';
-    node.style.width = '400px';
-    node.style.left = 0;
-    node.style.right = 0;
-    node.style.fontSize = '30px';
-
-    node.textContent = errorMessage;
-    setup.insertAdjacentElement('afterbegin', node);
-  };
-
-  window.load(successHandler, errorHandler);
+  window.load(successHandler, onError);
 })();
 
-var onError = function (errorMessage) {
-  var node = document.createElement('div');
-  node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
-  node.style.position = 'absolute';
-  node.style.left = 0;
-  node.style.right = 0;
-  node.style.fontSize = '30px';
-
-  node.textContent = errorMessage;
-  setup.insertAdjacentElement('afterbegin', node);
-};
 
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
