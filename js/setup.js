@@ -19,6 +19,7 @@ var onError = function (errorMessage) {
   node.style.left = 0;
   node.style.right = 0;
   node.style.fontSize = '30px';
+  node.classList.add('errorMessage');
 
   node.textContent = errorMessage;
   setup.insertAdjacentElement('afterbegin', node);
@@ -64,9 +65,13 @@ var openPopup = function () {
 };
 
 var closePopup = function () {
+  var errorMessage = setup.querySelector('.errorMessage');
   if (document.activeElement === userNameInput) {
     return;
   } else {
+    if (errorMessage) {
+      setup.removeChild(errorMessage);
+    }
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
     setDefaultPosition();
