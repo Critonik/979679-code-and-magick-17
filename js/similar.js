@@ -7,14 +7,13 @@
   var eyesColor;
   var wizards = [];
 
-
   var getRank = function (wizard) {
     var rank = 0;
 
-    if (window.wizard.colorCoat === coatColor) {
+    if (wizard.colorCoat === coatColor) {
       rank += 2;
     }
-    if (window.wizard.colorEyes === eyesColor) {
+    if (wizard.colorEyes === eyesColor) {
       rank += 1;
     }
 
@@ -41,15 +40,15 @@
     }));
   };
 
-  window.wizard.onEyesChange = function (color) {
+  window.wizard.onEyesChange = window.debounce(function (color) {
     eyesColor = color;
     updateWizards();
-  };
+  });
 
-  window.wizard.onCoatChange = function (color) {
+  window.wizard.onCoatChange = window.debounce(function (color) {
     coatColor = color;
     updateWizards();
-  };
+  });
 
   var onError = function (errorMessage) {
     var node = document.createElement('div');

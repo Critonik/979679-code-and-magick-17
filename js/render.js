@@ -12,9 +12,10 @@
   };
 
   window.render = function (data) {
-
+    var takeNumber = data.length > 4 ? 4 : data.length;
+    similarListElement.innerHTML = '';
     var fragment = document.createDocumentFragment();
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < takeNumber; i++) {
       fragment.appendChild(renderWizard(data[i]));
     }
     similarListElement.appendChild(fragment);

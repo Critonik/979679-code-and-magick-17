@@ -13,25 +13,18 @@
     default: ['red', 'black', 'blue', 'yellow', 'green']
   };
 
-  var wizard = {
-    onEyesChange: function () {},
-    onCoatChange: function () {}
-  };
-
   wizardCoat.addEventListener('click', function () {
     var newColor = COLORS['rgb'][window.util.getRandomInt(0, 'rgb'.length)];
     wizardCoatInput.value = newColor;
     wizardCoat.style.fill = wizardCoatInput.value;
-    this.style.fill = newColor;
-    wizard.onCoatChange(newColor);
+    window.wizard.onCoatChange(newColor);
   });
 
   wizardEyes.addEventListener('click', function () {
     var newColor = COLORS['default'][window.util.getRandomInt(0, 'default'.length)];
     wizardEyesInput.value = newColor;
     wizardEyes.style.fill = wizardEyesInput.value;
-    this.style.fill = newColor;
-    wizard.onEyesChange(newColor);
+    window.wizard.onEyesChange(newColor);
   });
 
   fireball.addEventListener('click', function () {
@@ -40,5 +33,4 @@
     fireball.style.backgroundColor = fireballInput.value;
   });
 
-  window.wizard = wizard;
 })();

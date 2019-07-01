@@ -20,7 +20,7 @@ var openPopup = function () {
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-window.window.closePopup = function () {
+window.closePopup = function () {
   var errorMessage = setup.querySelector('.errorMessage');
   if (document.activeElement === userNameInput) {
     return;
