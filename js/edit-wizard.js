@@ -16,14 +16,14 @@
   wizardCoat.addEventListener('click', function () {
     var newColor = COLORS['rgb'][window.util.getRandomInt(0, 'rgb'.length)];
     wizardCoatInput.value = newColor;
-    wizardCoat.style.fill = wizardCoatInput.value;
+    wizardCoat.style.fill = newColor;
     window.wizard.onCoatChange(newColor);
   });
 
   wizardEyes.addEventListener('click', function () {
     var newColor = COLORS['default'][window.util.getRandomInt(0, 'default'.length)];
     wizardEyesInput.value = newColor;
-    wizardEyes.style.fill = wizardEyesInput.value;
+    wizardEyes.style.fill = newColor;
     window.wizard.onEyesChange(newColor);
   });
 
