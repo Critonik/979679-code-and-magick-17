@@ -30,7 +30,7 @@
   fireball.addEventListener('click', function () {
     var newColor = COLORS['hex'][window.util.getRandomInt(0, 'hex'.length)];
     fireballInput.value = newColor;
-    fireball.style.backgroundColor = fireballInput.value;
+    fireball.style.backgroundColor = newColor;
   });
 
 })();
